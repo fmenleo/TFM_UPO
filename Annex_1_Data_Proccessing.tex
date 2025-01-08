@@ -1,0 +1,877 @@
+% Options for packages loaded elsewhere
+\PassOptionsToPackage{unicode}{hyperref}
+\PassOptionsToPackage{hyphens}{url}
+%
+\documentclass[
+]{article}
+\usepackage{amsmath,amssymb}
+\usepackage{iftex}
+\ifPDFTeX
+  \usepackage[T1]{fontenc}
+  \usepackage[utf8]{inputenc}
+  \usepackage{textcomp} % provide euro and other symbols
+\else % if luatex or xetex
+  \usepackage{unicode-math} % this also loads fontspec
+  \defaultfontfeatures{Scale=MatchLowercase}
+  \defaultfontfeatures[\rmfamily]{Ligatures=TeX,Scale=1}
+\fi
+\usepackage{lmodern}
+\ifPDFTeX\else
+  % xetex/luatex font selection
+\fi
+% Use upquote if available, for straight quotes in verbatim environments
+\IfFileExists{upquote.sty}{\usepackage{upquote}}{}
+\IfFileExists{microtype.sty}{% use microtype if available
+  \usepackage[]{microtype}
+  \UseMicrotypeSet[protrusion]{basicmath} % disable protrusion for tt fonts
+}{}
+\makeatletter
+\@ifundefined{KOMAClassName}{% if non-KOMA class
+  \IfFileExists{parskip.sty}{%
+    \usepackage{parskip}
+  }{% else
+    \setlength{\parindent}{0pt}
+    \setlength{\parskip}{6pt plus 2pt minus 1pt}}
+}{% if KOMA class
+  \KOMAoptions{parskip=half}}
+\makeatother
+\usepackage{xcolor}
+\usepackage[margin=1in]{geometry}
+\usepackage{color}
+\usepackage{fancyvrb}
+\newcommand{\VerbBar}{|}
+\newcommand{\VERB}{\Verb[commandchars=\\\{\}]}
+\DefineVerbatimEnvironment{Highlighting}{Verbatim}{commandchars=\\\{\}}
+% Add ',fontsize=\small' for more characters per line
+\usepackage{framed}
+\definecolor{shadecolor}{RGB}{248,248,248}
+\newenvironment{Shaded}{\begin{snugshade}}{\end{snugshade}}
+\newcommand{\AlertTok}[1]{\textcolor[rgb]{0.94,0.16,0.16}{#1}}
+\newcommand{\AnnotationTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{#1}}}}
+\newcommand{\AttributeTok}[1]{\textcolor[rgb]{0.13,0.29,0.53}{#1}}
+\newcommand{\BaseNTok}[1]{\textcolor[rgb]{0.00,0.00,0.81}{#1}}
+\newcommand{\BuiltInTok}[1]{#1}
+\newcommand{\CharTok}[1]{\textcolor[rgb]{0.31,0.60,0.02}{#1}}
+\newcommand{\CommentTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textit{#1}}}
+\newcommand{\CommentVarTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{#1}}}}
+\newcommand{\ConstantTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{#1}}
+\newcommand{\ControlFlowTok}[1]{\textcolor[rgb]{0.13,0.29,0.53}{\textbf{#1}}}
+\newcommand{\DataTypeTok}[1]{\textcolor[rgb]{0.13,0.29,0.53}{#1}}
+\newcommand{\DecValTok}[1]{\textcolor[rgb]{0.00,0.00,0.81}{#1}}
+\newcommand{\DocumentationTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{#1}}}}
+\newcommand{\ErrorTok}[1]{\textcolor[rgb]{0.64,0.00,0.00}{\textbf{#1}}}
+\newcommand{\ExtensionTok}[1]{#1}
+\newcommand{\FloatTok}[1]{\textcolor[rgb]{0.00,0.00,0.81}{#1}}
+\newcommand{\FunctionTok}[1]{\textcolor[rgb]{0.13,0.29,0.53}{\textbf{#1}}}
+\newcommand{\ImportTok}[1]{#1}
+\newcommand{\InformationTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{#1}}}}
+\newcommand{\KeywordTok}[1]{\textcolor[rgb]{0.13,0.29,0.53}{\textbf{#1}}}
+\newcommand{\NormalTok}[1]{#1}
+\newcommand{\OperatorTok}[1]{\textcolor[rgb]{0.81,0.36,0.00}{\textbf{#1}}}
+\newcommand{\OtherTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{#1}}
+\newcommand{\PreprocessorTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textit{#1}}}
+\newcommand{\RegionMarkerTok}[1]{#1}
+\newcommand{\SpecialCharTok}[1]{\textcolor[rgb]{0.81,0.36,0.00}{\textbf{#1}}}
+\newcommand{\SpecialStringTok}[1]{\textcolor[rgb]{0.31,0.60,0.02}{#1}}
+\newcommand{\StringTok}[1]{\textcolor[rgb]{0.31,0.60,0.02}{#1}}
+\newcommand{\VariableTok}[1]{\textcolor[rgb]{0.00,0.00,0.00}{#1}}
+\newcommand{\VerbatimStringTok}[1]{\textcolor[rgb]{0.31,0.60,0.02}{#1}}
+\newcommand{\WarningTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{#1}}}}
+\usepackage{graphicx}
+\makeatletter
+\def\maxwidth{\ifdim\Gin@nat@width>\linewidth\linewidth\else\Gin@nat@width\fi}
+\def\maxheight{\ifdim\Gin@nat@height>\textheight\textheight\else\Gin@nat@height\fi}
+\makeatother
+% Scale images if necessary, so that they will not overflow the page
+% margins by default, and it is still possible to overwrite the defaults
+% using explicit options in \includegraphics[width, height, ...]{}
+\setkeys{Gin}{width=\maxwidth,height=\maxheight,keepaspectratio}
+% Set default figure placement to htbp
+\makeatletter
+\def\fps@figure{htbp}
+\makeatother
+\setlength{\emergencystretch}{3em} % prevent overfull lines
+\providecommand{\tightlist}{%
+  \setlength{\itemsep}{0pt}\setlength{\parskip}{0pt}}
+\setcounter{secnumdepth}{-\maxdimen} % remove section numbering
+\ifLuaTeX
+  \usepackage{selnolig}  % disable illegal ligatures
+\fi
+\usepackage{bookmark}
+\IfFileExists{xurl.sty}{\usepackage{xurl}}{} % add URL line breaks if available
+\urlstyle{same}
+\hypersetup{
+  pdftitle={ANNEX 1: Initial data processing (Burdziak et all. dataset)},
+  hidelinks,
+  pdfcreator={LaTeX via pandoc}}
+
+\title{ANNEX 1: Initial data processing (Burdziak et all. dataset)}
+\author{}
+\date{\vspace{-2.5em}}
+
+\begin{document}
+\maketitle
+
+Initial preprocessing of dataset from \textbf{Burdziak et al.~(Science,
+2023)}. Accession: GSE207938 (Progression Cohort single-cell RNA seq
+data)
+
+Design: Characterization of single-cell transcriptional profiles of
+lineage-traced pancreatic epithelial cells (mKate2+) isolated directly
+by FACS-sorting from normal (N1), regenerating (N2), pre-neoplastic (K1,
+K2), bening neoplastic (PanIN, K3, K4), malignant (PDAC, K5) and
+metastasis (K6) murine pancreatic tissues
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# Libraries}
+\FunctionTok{library}\NormalTok{(tidyverse)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## Warning: package 'lubridate' was built under R version 4.4.2
+\end{verbatim}
+
+\begin{verbatim}
+## -- Attaching core tidyverse packages ------------------------ tidyverse 2.0.0 --
+## v dplyr     1.1.4     v readr     2.1.5
+## v forcats   1.0.0     v stringr   1.5.1
+## v ggplot2   3.5.1     v tibble    3.2.1
+## v lubridate 1.9.4     v tidyr     1.3.1
+## v purrr     1.0.2     
+## -- Conflicts ------------------------------------------ tidyverse_conflicts() --
+## x dplyr::filter() masks stats::filter()
+## x dplyr::lag()    masks stats::lag()
+## i Use the conflicted package (<http://conflicted.r-lib.org/>) to force all conflicts to become errors
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{library}\NormalTok{(glue)}
+\FunctionTok{library}\NormalTok{(Seurat)    }\CommentTok{\# scRNAseq analysis}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## Cargando paquete requerido: SeuratObject
+## Cargando paquete requerido: sp
+## 
+## Adjuntando el paquete: 'SeuratObject'
+## 
+## The following objects are masked from 'package:base':
+## 
+##     intersect, t
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{library}\NormalTok{(schard)    }\CommentTok{\# h5ad file transformation}
+\FunctionTok{library}\NormalTok{(infercnv)  }\CommentTok{\# CNV analysis}
+\FunctionTok{library}\NormalTok{(patchwork) }\CommentTok{\# plot tools}
+\end{Highlighting}
+\end{Shaded}
+
+\subsection{Data import}\label{data-import}
+
+Raw counts and processed data available in file:
+\emph{GSE207938\_ProgressionCohort.h5ad.gz,} manually downloaded and
+unzipped from
+\href{https://www.ncbi.nlm.nih.gov/geo/download/?acc=GSE207938&format=file&file=GSE207938\%5FProgressionCohort\%2Eh5ad\%2Egz}{GEO}.
+
+Transforming anndata raw data to seurat (w/ schard) When importing data
+from the h5ad file, both counts and data layers will have the same data.
+I import two copies and save the normalized data to add it later:
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{h5ad.path }\OtherTok{\textless{}{-}} \FunctionTok{file.path}\NormalTok{(wd,}\StringTok{"/data/GSE207938\_ProgressionCohort.h5ad"}\NormalTok{)}
+\NormalTok{burdziak\_seu }\OtherTok{\textless{}{-}} \FunctionTok{h5ad2seurat}\NormalTok{(h5ad.path, }\AttributeTok{use.raw =} \ConstantTok{TRUE}\NormalTok{)   }
+\NormalTok{burdziak\_seu}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## An object of class Seurat 
+## 16826 features across 28131 samples within 1 assay 
+## Active assay: RNA (16826 features, 0 variable features)
+##  2 layers present: counts, data
+##  2 dimensional reductions calculated: XEMBED_, XPCA_
+\end{verbatim}
+
+Both counts and data assays contain the same data (raw counts)
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{identical}\NormalTok{(burdziak\_seu}\SpecialCharTok{@}\NormalTok{assays}\SpecialCharTok{$}\NormalTok{RNA}\SpecialCharTok{$}\NormalTok{counts,burdziak\_seu}\SpecialCharTok{@}\NormalTok{assays}\SpecialCharTok{$}\NormalTok{RNA}\SpecialCharTok{$}\NormalTok{data)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## [1] TRUE
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{head}\NormalTok{(burdziak\_seu}\SpecialCharTok{@}\NormalTok{assays}\SpecialCharTok{$}\NormalTok{RNA}\SpecialCharTok{$}\NormalTok{counts) }\CommentTok{\# raw counts}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## 6 x 28131 sparse Matrix of class "dgCMatrix"
+\end{verbatim}
+
+\begin{verbatim}
+##   [[ suppressing 34 column names '120703424252788_DACD394_Kate_plus', '120703436605797_DACD394_Kate_plus', '120703436909853_DACD394_Kate_plus' ... ]]
+\end{verbatim}
+
+\begin{verbatim}
+##                                                                                
+## 0610007P14RIK 1 1 1 1 3 1 1 1 1 1 . . . 3 2 . 1 1 1 . 1 2 1 1 . 3 1 . 1 . . 1 6
+## 0610009B22RIK 2 2 3 2 1 1 . . 5 2 4 . 1 1 . 1 1 1 4 2 2 2 2 . . . . . 1 . . . 1
+## 0610009L18RIK . 1 . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+## 0610009O20RIK . . . . 1 . . . . . . . . . 1 . . . . 1 . 1 . . . . . . 1 . 1 . .
+## 0610010F05RIK . . . . 3 . 1 1 . 1 2 . . . 2 . . . . . . . 1 . 1 . . . 1 . . . .
+## 0610010K14RIK . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+##                       
+## 0610007P14RIK . ......
+## 0610009B22RIK 2 ......
+## 0610009L18RIK . ......
+## 0610009O20RIK 1 ......
+## 0610010F05RIK . ......
+## 0610010K14RIK . ......
+## 
+##  .....suppressing 28097 columns in show(); maybe adjust options(max.print=, width=)
+##  ..............................
+\end{verbatim}
+
+Importing a new copy with only norm data
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{normdata }\OtherTok{\textless{}{-}} \FunctionTok{h5ad2seurat}\NormalTok{(h5ad.path, }\AttributeTok{use.raw =} \ConstantTok{FALSE}\NormalTok{, }\AttributeTok{load.obsm =} \ConstantTok{FALSE}\NormalTok{)}
+\FunctionTok{identical}\NormalTok{(normdata}\SpecialCharTok{@}\NormalTok{assays}\SpecialCharTok{$}\NormalTok{RNA}\SpecialCharTok{$}\NormalTok{counts,normdata}\SpecialCharTok{@}\NormalTok{assays}\SpecialCharTok{$}\NormalTok{RNA}\SpecialCharTok{$}\NormalTok{data)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## [1] TRUE
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{head}\NormalTok{(normdata}\SpecialCharTok{@}\NormalTok{assays}\SpecialCharTok{$}\NormalTok{RNA}\SpecialCharTok{$}\NormalTok{counts) }\CommentTok{\# normalized counts}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## 6 x 28131 sparse Matrix of class "dgCMatrix"
+\end{verbatim}
+
+\begin{verbatim}
+##   [[ suppressing 34 column names '120703424252788_DACD394_Kate_plus', '120703436605797_DACD394_Kate_plus', '120703436909853_DACD394_Kate_plus' ... ]]
+\end{verbatim}
+
+\begin{verbatim}
+##                                                                          
+## 0610007P14RIK 0.4621927 0.5904931 0.6595001 0.2131015 1.3444474 0.5342166
+## 0610009B22RIK 0.9243853 1.1809862 1.9785002 0.4262030 0.4481491 0.5342166
+## 0610009L18RIK .         0.5904931 .         .         .         .        
+## 0610009O20RIK .         .         .         .         0.4481491 .        
+## 0610010F05RIK .         .         .         .         1.3444474 .        
+## 0610010K14RIK .         .         .         .         .         .        
+##                                                                          
+## 0610007P14RIK 0.4252605 0.3607374 0.2442599 0.545286 .         . .       
+## 0610009B22RIK .         .         1.2212994 1.090572 1.7829285 . 1.047449
+## 0610009L18RIK .         .         .         .        .         . .       
+## 0610009O20RIK .         .         .         .        .         . .       
+## 0610010F05RIK 0.4252605 0.3607374 .         0.545286 0.8914642 . .       
+## 0610010K14RIK .         .         .         .        .         . .       
+##                                                                        
+## 0610007P14RIK 1.3625834 0.4948903 .         1.039501 0.783699 0.4958104
+## 0610009B22RIK 0.4541945 .         0.6738998 1.039501 0.783699 1.9832416
+## 0610009L18RIK .         .         .         .        .        .        
+## 0610009O20RIK .         0.2474451 .         .        .        .        
+## 0610010F05RIK .         0.4948903 .         .        .        .        
+## 0610010K14RIK .         .         .         .        .        .        
+##                                                                          
+## 0610007P14RIK .         0.4081966 0.7650816 0.1459683 0.4042037 .        
+## 0610009B22RIK 1.0787487 0.8163932 0.7650816 0.2919367 .         .        
+## 0610009L18RIK .         .         .         .         .         .        
+## 0610009O20RIK 0.5393744 .         0.3825408 .         .         .        
+## 0610010F05RIK .         .         .         0.1459683 .         0.3079197
+## 0610010K14RIK .         .         .         .         .         .        
+##                                                                              
+## 0610007P14RIK 0.6313264 0.4451765 . 0.4359388 . .         0.6935775 2.2951572
+## 0610009B22RIK .         .         . 0.4359388 . .         .         0.3825262
+## 0610009L18RIK .         .         . .         . .         .         .        
+## 0610009O20RIK .         .         . 0.4359388 . 0.2108681 .         .        
+## 0610010F05RIK .         .         . 0.4359388 . .         .         .        
+## 0610010K14RIK .         .         . .         . .         .         .        
+##                               
+## 0610007P14RIK .         ......
+## 0610009B22RIK 0.7662835 ......
+## 0610009L18RIK .         ......
+## 0610009O20RIK 0.3831418 ......
+## 0610010F05RIK .         ......
+## 0610010K14RIK .         ......
+## 
+##  .....suppressing 28097 columns in show(); maybe adjust options(max.print=, width=)
+##  ..............................
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{norm\_cts }\OtherTok{\textless{}{-}}\NormalTok{ normdata}\SpecialCharTok{@}\NormalTok{assays}\SpecialCharTok{$}\NormalTok{RNA}\SpecialCharTok{$}\NormalTok{counts }\CommentTok{\# storing norm counts}
+\FunctionTok{rm}\NormalTok{(normdata)}
+\end{Highlighting}
+\end{Shaded}
+
+Adding tissue state info in metadata
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{unique}\NormalTok{(burdziak\_seu}\SpecialCharTok{@}\NormalTok{meta.data}\SpecialCharTok{$}\NormalTok{condition) }\CommentTok{\# check conditions}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## [1] "K1"   "K2"   "K1.5" "K6"   "K3"   "K5"   "N2"   "K4"   "N1"
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{burdziak\_seu}\SpecialCharTok{@}\NormalTok{meta.data }\OtherTok{\textless{}{-}}\NormalTok{ burdziak\_seu}\SpecialCharTok{@}\NormalTok{meta.data }\SpecialCharTok{\%\textgreater{}\%} \FunctionTok{mutate}\NormalTok{(}\AttributeTok{tissue =} \FunctionTok{case\_when}\NormalTok{( }\CommentTok{\# add tissue column, based on reference paper}
+\NormalTok{  condition }\SpecialCharTok{==} \StringTok{"N1"} \SpecialCharTok{\textasciitilde{}} \StringTok{"Normal"}\NormalTok{,}
+\NormalTok{  condition }\SpecialCharTok{==} \StringTok{"N2"} \SpecialCharTok{\textasciitilde{}} \StringTok{"Regeneration"}\NormalTok{,}
+\NormalTok{  condition }\SpecialCharTok{\%in\%} \FunctionTok{c}\NormalTok{(}\StringTok{"K1"}\NormalTok{, }\StringTok{"K1.5"}\NormalTok{, }\StringTok{"K2"}\NormalTok{) }\SpecialCharTok{\textasciitilde{}} \StringTok{"Pre{-}neoplasia"}\NormalTok{,}
+\NormalTok{  condition }\SpecialCharTok{\%in\%} \FunctionTok{c}\NormalTok{(}\StringTok{"K3"}\NormalTok{, }\StringTok{"K4"}\NormalTok{) }\SpecialCharTok{\textasciitilde{}} \StringTok{"PanIN"}\NormalTok{,}
+\NormalTok{  condition }\SpecialCharTok{==} \StringTok{"K5"}  \SpecialCharTok{\textasciitilde{}} \StringTok{"PDAC"}\NormalTok{,}
+\NormalTok{  condition }\SpecialCharTok{==} \StringTok{"K6"} \SpecialCharTok{\textasciitilde{}} \StringTok{"Metastasis"}\NormalTok{))}
+\NormalTok{burdziak\_seu}\SpecialCharTok{$}\NormalTok{tissue }\OtherTok{\textless{}{-}} \FunctionTok{factor}\NormalTok{(burdziak\_seu}\SpecialCharTok{$}\NormalTok{tissue, }\CommentTok{\# ordering tissue states}
+                              \AttributeTok{levels =}\FunctionTok{c}\NormalTok{(}\StringTok{"Normal"}\NormalTok{,}\StringTok{"Regeneration"}\NormalTok{, }\StringTok{"Pre{-}neoplasia"}\NormalTok{,}
+                                        \StringTok{"PanIN"}\NormalTok{,}\StringTok{"PDAC"}\NormalTok{, }\StringTok{"Metastasis"}\NormalTok{))}
+\end{Highlighting}
+\end{Shaded}
+
+\subsection{Checking data
+pre-processing}\label{checking-data-pre-processing}
+
+Uploaded data is already filtered and pre-processed
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# MT genes}
+\NormalTok{burdziak\_seu[[}\StringTok{"percent.mt"}\NormalTok{]] }\OtherTok{\textless{}{-}} \FunctionTok{PercentageFeatureSet}\NormalTok{(}\AttributeTok{object =}\NormalTok{ burdziak\_seu, }\AttributeTok{pattern =} \StringTok{"\^{}MT{-}"}\NormalTok{)}
+\FunctionTok{summary}\NormalTok{(burdziak\_seu}\SpecialCharTok{@}\NormalTok{meta.data}\SpecialCharTok{$}\NormalTok{percent\_mt) }\CommentTok{\# lenght = 0; no MT genes}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## Length  Class   Mode 
+##      0   NULL   NULL
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# QC metrics}
+\FunctionTok{glue}\NormalTok{(}\StringTok{"Min nCount = \{min(burdziak\_seu@meta.data$nCount\_RNA)\}}\SpecialCharTok{\textbackslash{}n}\StringTok{"}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## Min nCount = 534
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{glue}\NormalTok{(}\StringTok{"Min nFeat = \{min(burdziak\_seu@meta.data$nFeature\_RNA)\}}\SpecialCharTok{\textbackslash{}n}\StringTok{"}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## Min nFeat = 138
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{VlnPlot}\NormalTok{(burdziak\_seu, }\AttributeTok{features =} \FunctionTok{c}\NormalTok{(}\StringTok{"nCount\_RNA"}\NormalTok{, }\StringTok{"nFeature\_RNA"}\NormalTok{),}
+        \AttributeTok{ncol =} \DecValTok{2}\NormalTok{, }\AttributeTok{pt.size =} \DecValTok{0}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\includegraphics{Annex_1_Data_Proccessing_files/figure-latex/unnamed-chunk-6-1.pdf}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# Metadata cols}
+\FunctionTok{glue}\NormalTok{(}\StringTok{"Metadata:}\SpecialCharTok{\textbackslash{}n}\StringTok{"}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## Metadata:
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{colnames}\NormalTok{(burdziak\_seu}\SpecialCharTok{@}\NormalTok{meta.data)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## [1] "orig.ident"   "nCount_RNA"   "nFeature_RNA" "_index"       "batch"       
+## [6] "condition"    "cluster"      "tissue"       "percent.mt"
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# Reduced dims}
+\FunctionTok{glue}\NormalTok{(}\StringTok{"tSNE plot:}\SpecialCharTok{\textbackslash{}n}\StringTok{"}\NormalTok{) }\CommentTok{\#tSNE data imported in XEMBED\_ dimensional reduction}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## tSNE plot:
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{DimPlot}\NormalTok{(burdziak\_seu, }\AttributeTok{reduction =} \StringTok{"XEMBED\_"}\NormalTok{, }\AttributeTok{group.by =} \StringTok{"cluster"}\NormalTok{, }\AttributeTok{label=}\ConstantTok{TRUE}\NormalTok{) }\SpecialCharTok{+} \FunctionTok{theme\_minimal}\NormalTok{() }\SpecialCharTok{+} \FunctionTok{theme}\NormalTok{(}\AttributeTok{panel.grid =} \FunctionTok{element\_blank}\NormalTok{()) }\SpecialCharTok{+} \FunctionTok{ggtitle}\NormalTok{(}\ConstantTok{NULL}\NormalTok{) }\SpecialCharTok{+} \FunctionTok{labs}\NormalTok{(}\AttributeTok{x =} \StringTok{"tSNE\_1"}\NormalTok{, }\AttributeTok{y =} \StringTok{"tSNE\_2"}\NormalTok{) }
+\end{Highlighting}
+\end{Shaded}
+
+\includegraphics{Annex_1_Data_Proccessing_files/figure-latex/unnamed-chunk-6-2.pdf}
+
+\subsection{Gene symbol formatting}\label{gene-symbol-formatting}
+
+The dataset originates from mouse tissue However, due to previous
+treatment, the uploaded format of the genes in the count matrix is not
+standard (for mice, only the first letter is capitalised, e.g: Kras19)
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{original\_genes }\OtherTok{\textless{}{-}} \FunctionTok{rownames}\NormalTok{(burdziak\_seu) }\CommentTok{\# copy of original gene names }
+\FunctionTok{head}\NormalTok{(original\_genes,}\DecValTok{10}\NormalTok{) }
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+##  [1] "0610007P14RIK" "0610009B22RIK" "0610009L18RIK" "0610009O20RIK"
+##  [5] "0610010F05RIK" "0610010K14RIK" "0610012G03RIK" "0610030E20RIK"
+##  [9] "0610033M10RIK" "0610037L13RIK"
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{tail}\NormalTok{(original\_genes,}\DecValTok{10}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+##  [1] "ZW10"   "ZWILCH" "ZWINT"  "ZXDB"   "ZXDC"   "ZYG11A" "ZYG11B" "ZYX"   
+##  [9] "ZZEF1"  "ZZZ3"
+\end{verbatim}
+
+I confirm that the dataset contains converted to uppercase rather than
+human ortologs. First, by checking mouse-specific genes such as Trp53,
+mouse ortholog of human TP53:
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{glue}\NormalTok{(}\StringTok{"TP53 is not present in the database:"}\NormalTok{, }\StringTok{"}\SpecialCharTok{\textbackslash{}n}\StringTok{ }\SpecialCharTok{\textbackslash{}"}\StringTok{TP53}\SpecialCharTok{\textbackslash{}"}\StringTok{ \%in\% original\_genes = "}\NormalTok{,}
+     \StringTok{"TP53"} \SpecialCharTok{\%in\%}\NormalTok{ original\_genes, }\StringTok{"}\SpecialCharTok{\textbackslash{}n\textbackslash{}n}\StringTok{"}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## TP53 is not present in the database:
+## "TP53" %in% original_genes = FALSE
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{glue}\NormalTok{(}\StringTok{"The mouse ortholog, Trp53, is also not present:"}\NormalTok{, }\StringTok{"}\SpecialCharTok{\textbackslash{}n}\StringTok{ }\SpecialCharTok{\textbackslash{}"}\StringTok{Trp53}\SpecialCharTok{\textbackslash{}"}\StringTok{ \%in\% original\_genes = "}\NormalTok{, }
+     \StringTok{"Trp53"} \SpecialCharTok{\%in\%}\NormalTok{ original\_genes, }\StringTok{"}\SpecialCharTok{\textbackslash{}n\textbackslash{}n}\StringTok{"}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## The mouse ortholog, Trp53, is also not present:
+## "Trp53" %in% original_genes = FALSE
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{glue}\NormalTok{(}\StringTok{"However, TRP53 is:"}\NormalTok{, }\StringTok{"}\SpecialCharTok{\textbackslash{}n}\StringTok{ }\SpecialCharTok{\textbackslash{}"}\StringTok{TRP53}\SpecialCharTok{\textbackslash{}"}\StringTok{ \%in\% original\_genes = "}\NormalTok{, }
+     \StringTok{"TRP53"} \SpecialCharTok{\%in\%}\NormalTok{ original\_genes, }\StringTok{"}\SpecialCharTok{\textbackslash{}n\textbackslash{}n}\StringTok{"}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## However, TRP53 is:
+## "TRP53" %in% original_genes = TRUE
+\end{verbatim}
+
+These genes are easy to process with stringr, using the
+\texttt{str\_to\_sentence()}. However, the dataset also includes genes
+from the
+\href{https://www.sciencedirect.com/science/article/pii/S1631069103002166?via\%3Dihub}{Riken
+mouse genome encyclopedia project}. These symbols are annotated in
+different ways. While the majority of these genes end with the RIK
+suffix, some have an additional number (RIKx). Also, there are GRIK
+genes that interfere with the grep functions.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# checking all gene names that contain RIK}
+\NormalTok{original\_genes[}\FunctionTok{grep}\NormalTok{(}\AttributeTok{x=}\NormalTok{ original\_genes, }\AttributeTok{pattern =} \StringTok{"RIK"}\NormalTok{)] }
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+##   [1] "0610007P14RIK"  "0610009B22RIK"  "0610009L18RIK"  "0610009O20RIK" 
+##   [5] "0610010F05RIK"  "0610010K14RIK"  "0610012G03RIK"  "0610030E20RIK" 
+##   [9] "0610033M10RIK"  "0610037L13RIK"  "0610040J01RIK"  "0610043K17RIK" 
+##  [13] "1010001B22RIK"  "1010001N08RIK"  "1110002E22RIK"  "1110002O04RIK" 
+##  [17] "1110004E09RIK"  "1110004F10RIK"  "1110006O24RIK"  "1110008F13RIK" 
+##  [21] "1110008L16RIK"  "1110008P14RIK"  "1110012L19RIK"  "1110017D15RIK" 
+##  [25] "1110019D14RIK"  "1110020A21RIK"  "1110028F18RIK"  "1110032A03RIK" 
+##  [29] "1110034G24RIK"  "1110036E04RIK"  "1110037F02RIK"  "1110038F14RIK" 
+##  [33] "1110051M20RIK"  "1110059E24RIK"  "1110059G10RIK"  "1110065P20RIK" 
+##  [37] "1190002N15RIK"  "1190005I06RIK"  "1190007I07RIK"  "1200007C13RIK" 
+##  [41] "1300002E11RIK"  "1300017J02RIK"  "1500009C09RIK"  "1500009L16RIK" 
+##  [45] "1500011B03RIK"  "1500011K16RIK"  "1500015L24RIK"  "1500015O10RIK" 
+##  [49] "1500026H17RIK"  "1500035N22RIK"  "1520401A03RIK"  "1600002D24RIK" 
+##  [53] "1600002H07RIK"  "1600002K03RIK"  "1600012H06RIK"  "1600014C10RIK" 
+##  [57] "1600014C23RIK"  "1600027J07RIK"  "1700001C02RIK"  "1700001C19RIK" 
+##  [61] "1700001L05RIK"  "1700001L19RIK"  "1700001O22RIK"  "1700001P01RIK" 
+##  [65] "1700003E16RIK"  "1700003F12RIK"  "1700006E09RIK"  "1700007B14RIK" 
+##  [69] "1700007G11RIK"  "1700007K13RIK"  "1700007L15RIK"  "1700008O03RIK" 
+##  [73] "1700009N14RIK"  "1700010I14RIK"  "1700011D18RIK"  "1700011H14RIK" 
+##  [77] "1700012B07RIK"  "1700012B09RIK"  "1700012C14RIK"  "1700013F07RIK" 
+##  [81] "1700015F17RIK"  "1700016C15RIK"  "1700016D06RIK"  "1700016F12RIK" 
+##  [85] "1700016G22RIK"  "1700016H13RIK"  "1700016K19RIK"  "1700017B05RIK" 
+##  [89] "1700018A04RIK"  "1700019B03RIK"  "1700019D03RIK"  "1700020D05RIK" 
+##  [93] "1700020I14RIK"  "1700020L24RIK"  "1700021F05RIK"  "1700022I11RIK" 
+##  [97] "1700022N22RIK"  "1700023F06RIK"  "1700024P16RIK"  "1700025G04RIK" 
+## [101] "1700027J19RIK"  "1700028J19RIK"  "1700029F12RIK"  "1700029I15RIK" 
+## [105] "1700029J03RIK"  "1700029J07RIK"  "1700030J22RIK"  "1700030K09RIK" 
+## [109] "1700031P21RIK"  "1700037C18RIK"  "1700037H04RIK"  "1700039M10RIK" 
+## [113] "1700040D17RIK"  "1700040L02RIK"  "1700041G16RIK"  "1700041M19RIK" 
+## [117] "1700047I17RIK2" "1700048O20RIK"  "1700049E15RIK"  "1700054A03RIK" 
+## [121] "1700056E22RIK"  "1700056N10RIK"  "1700057G04RIK"  "1700061G19RIK" 
+## [125] "1700061I17RIK"  "1700064H15RIK"  "1700064M15RIK"  "1700066B19RIK" 
+## [129] "1700066J03RIK"  "1700066M21RIK"  "1700067K01RIK"  "1700086D15RIK" 
+## [133] "1700086O06RIK"  "1700086P04RIK"  "1700088E04RIK"  "1700092M07RIK" 
+## [137] "1700093K21RIK"  "1700096K18RIK"  "1700102P08RIK"  "1700104B16RIK" 
+## [141] "1700109H08RIK"  "1700112E06RIK"  "1700112J16RIK"  "1700122O11RIK" 
+## [145] "1700123O20RIK"  "1700125G22RIK"  "1700125H20RIK"  "1810006J02RIK" 
+## [149] "1810007C17RIK"  "1810007D17RIK"  "1810008I18RIK"  "1810009A15RIK" 
+## [153] "1810009J06RIK"  "1810010D01RIK"  "1810010H24RIK"  "1810011O10RIK" 
+## [157] "1810012K16RIK"  "1810013L24RIK"  "1810014B01RIK"  "1810019N24RIK" 
+## [161] "1810020O05RIK"  "1810022K09RIK"  "1810024B03RIK"  "1810026J23RIK" 
+## [165] "1810030O07RIK"  "1810032O08RIK"  "1810037I17RIK"  "1810041L15RIK" 
+## [169] "1810043G02RIK"  "1810044D09RIK"  "1810046K07RIK"  "1810049J17RIK" 
+## [173] "1810055G02RIK"  "1810058I24RIK"  "1810062G17RIK"  "1810063I02RIK" 
+## [177] "2010003K11RIK"  "2010005H15RIK"  "2010015M23RIK"  "2010107E04RIK" 
+## [181] "2010107G23RIK"  "2010109A12RIK"  "2010109I03RIK"  "2010110E17RIK" 
+## [185] "2010110K18RIK"  "2010111I01RIK"  "2010300C02RIK"  "2010300F17RIK" 
+## [189] "2010308F09RIK"  "2010315B03RIK"  "2010320M18RIK"  "2200002D01RIK" 
+## [193] "2200002J24RIK"  "2210008F06RIK"  "2210010C04RIK"  "2210011C24RIK" 
+## [197] "2210011K15RIK"  "2210013O21RIK"  "2210016F16RIK"  "2210016L21RIK" 
+## [201] "2210406O10RIK"  "2210407C18RIK"  "2210408I21RIK"  "2210417A02RIK" 
+## [205] "2210418O10RIK"  "2300009A05RIK"  "2310001H17RIK"  "2310007B03RIK" 
+## [209] "2310008N11RIK"  "2310009B15RIK"  "2310011J03RIK"  "2310015A10RIK" 
+## [213] "2310022A10RIK"  "2310022B05RIK"  "2310026L22RIK"  "2310030G06RIK" 
+## [217] "2310033P09RIK"  "2310035C23RIK"  "2310036O22RIK"  "2310039H08RIK" 
+## [221] "2310039L15RIK"  "2310040G24RIK"  "2310043L19RIK"  "2310043M15RIK" 
+## [225] "2310043O21RIK"  "2310047D07RIK"  "2310057J18RIK"  "2310057M21RIK" 
+## [229] "2310061I04RIK"  "2310069B03RIK"  "2310069G16RIK"  "2310074N15RIK" 
+## [233] "2410002F23RIK"  "2410004B18RIK"  "2410004I01RIK"  "2410004P03RIK" 
+## [237] "2410015M20RIK"  "2410016O06RIK"  "2410018L13RIK"  "2410080I02RIK" 
+## [241] "2410089E03RIK"  "2410131K14RIK"  "2510002D24RIK"  "2510009E07RIK" 
+## [245] "2510039O18RIK"  "2610001J05RIK"  "2610002M06RIK"  "2610008E11RIK" 
+## [249] "2610016A17RIK"  "2610020C07RIK"  "2610020H08RIK"  "2610021A01RIK" 
+## [253] "2610027F03RIK"  "2610035D17RIK"  "2610037D02RIK"  "2610044O15RIK8"
+## [257] "2610301B20RIK"  "2610318N02RIK"  "2610507B11RIK"  "2610524H06RIK" 
+## [261] "2610528A11RIK"  "2610528J11RIK"  "2700012I20RIK"  "2700016F22RIK" 
+## [265] "2700033N17RIK"  "2700038G22RIK"  "2700046A07RIK"  "2700046G09RIK" 
+## [269] "2700049A03RIK"  "2700060E02RIK"  "2700062C07RIK"  "2700081O15RIK" 
+## [273] "2700097O09RIK"  "2810004N23RIK"  "2810006K23RIK"  "2810021J22RIK" 
+## [277] "2810029C07RIK"  "2810032G03RIK"  "2810403A07RIK"  "2810405F17RIK" 
+## [281] "2810408A11RIK"  "2810414N06RIK"  "2810417H13RIK"  "2810425M01RIK" 
+## [285] "2810428I15RIK"  "2810429I04RIK"  "2810433D01RIK"  "2810455O05RIK" 
+## [289] "2810459M11RIK"  "2810474O19RIK"  "2900026A02RIK"  "2900055J20RIK" 
+## [293] "2900076A07RIK"  "3010026O09RIK"  "3100003L05RIK"  "3110001I22RIK" 
+## [297] "3110002H16RIK"  "3110009E18RIK"  "3110021N24RIK"  "3110039M20RIK" 
+## [301] "3110040N11RIK"  "3110043O21RIK"  "3110062M04RIK"  "3110070M22RIK" 
+## [305] "3110079O15RIK"  "3110082I17RIK"  "3110082J24RIK"  "3110083C13RIK" 
+## [309] "3222401L13RIK"  "3300002I08RIK"  "3300005D01RIK"  "3632451O06RIK" 
+## [313] "3830403N18RIK"  "3830406C13RIK"  "3830408C21RIK"  "3930402G23RIK" 
+## [317] "4430402I18RIK"  "4631405K08RIK"  "4632404H12RIK"  "4632411P08RIK" 
+## [321] "4632415L05RIK"  "4632428C04RIK"  "4732414G09RIK"  "4732419C18RIK" 
+## [325] "4732465J04RIK"  "4732490B19RIK"  "4732491K20RIK"  "4732496C06RIK" 
+## [329] "4831440E17RIK"  "4833403J16RIK"  "4833407H14RIK"  "4833412C05RIK" 
+## [333] "4833418N02RIK"  "4833420G17RIK"  "4833422M21RIK"  "4833423E24RIK" 
+## [337] "4833427F10RIK"  "4833427G06RIK"  "4833439L19RIK"  "4833445I07RIK" 
+## [341] "4921504E06RIK"  "4921507G05RIK"  "4921507P07RIK"  "4921524J17RIK" 
+## [345] "4921536K21RIK"  "4930402H24RIK"  "4930403P22RIK"  "4930404N11RIK" 
+## [349] "4930412M03RIK"  "4930415F15RIK"  "4930415O20RIK"  "4930425O10RIK" 
+## [353] "4930426I24RIK"  "4930426L09RIK"  "4930427A07RIK"  "4930429F24RIK" 
+## [357] "4930430F08RIK"  "4930432B10RIK"  "4930432K21RIK"  "4930438A08RIK" 
+## [361] "4930440I19RIK"  "4930442H23RIK"  "4930444M15RIK"  "4930444P10RIK" 
+## [365] "4930445N18RIK"  "4930448E22RIK"  "4930451G09RIK"  "4930452B06RIK" 
+## [369] "4930453N24RIK"  "4930455H04RIK"  "4930461G14RIK"  "4930467D21RIK" 
+## [373] "4930471M09RIK"  "4930480K23RIK"  "4930486L24RIK"  "4930503L19RIK" 
+## [377] "4930505N22RIK"  "4930507D05RIK"  "4930509E16RIK"  "4930509G22RIK" 
+## [381] "4930513D17RIK"  "4930518I15RIK"  "4930522L14RIK"  "4930523C07RIK" 
+## [385] "4930524J08RIK"  "4930532G15RIK"  "4930539E08RIK"  "4930540M05RIK" 
+## [389] "4930544M13RIK"  "4930548H24RIK"  "4930550C14RIK"  "4930553M12RIK" 
+## [393] "4930555A03RIK"  "4930556M19RIK"  "4930558J18RIK"  "4930558K02RIK" 
+## [397] "4930562F07RIK"  "4930563E18RIK"  "4930570G19RIK"  "4930578M01RIK" 
+## [401] "4930579C12RIK"  "4930579F01RIK"  "4930579G24RIK"  "4930580E04RIK" 
+## [405] "4930589L23RIK"  "4930590J08RIK"  "4930593A02RIK"  "4931406C07RIK" 
+## [409] "4931406P16RIK"  "4931413I07RIK"  "4931414P19RIK"  "4931428F04RIK" 
+## [413] "4931440F15RIK"  "4931440J10RIK"  "4932411K12RIK"  "4932416K20RIK" 
+## [417] "4932422M17RIK"  "4932430I15RIK"  "4932438A13RIK"  "4932438H23RIK" 
+## [421] "4933404O12RIK"  "4933405E24RIK"  "4933406C10RIK"  "4933406I18RIK" 
+## [425] "4933406P04RIK"  "4933407L21RIK"  "4933408B17RIK"  "4933408J17RIK" 
+## [429] "4933411E06RIK"  "4933411K16RIK"  "4933415A04RIK"  "4933417E11RIK" 
+## [433] "4933424G06RIK"  "4933427D14RIK"  "4933430I17RIK"  "4933433G15RIK" 
+## [437] "4933434E20RIK"  "5031415H12RIK"  "5031425E22RIK"  "5031439G07RIK" 
+## [441] "5033403F01RIK"  "5033426O07RIK"  "5033428I22RIK"  "5033430I15RIK" 
+## [445] "5330413P13RIK"  "5330416C01RIK"  "5330417C22RIK"  "5330429C05RIK" 
+## [449] "5330439K02RIK"  "5430403G16RIK"  "5430416N02RIK"  "5430416O09RIK" 
+## [453] "5430419D17RIK"  "5430421F17RIK"  "5430427N15RIK"  "5430434I15RIK" 
+## [457] "5730409E04RIK"  "5730419F03RIK"  "5730420D15RIK"  "5730422E09RIK" 
+## [461] "5730455P16RIK"  "5730480H06RIK"  "5730507C01RIK"  "5730508B09RIK" 
+## [465] "5730522E02RIK"  "5730559C18RIK"  "5730596B20RIK"  "5830416I19RIK" 
+## [469] "5830454E08RIK"  "5830473C10RIK"  "5930412G12RIK"  "5930430L01RIK" 
+## [473] "6030407O03RIK"  "6030408B16RIK"  "6030419C18RIK"  "6030443J06RIK" 
+## [477] "6030445D17RIK"  "6030458C11RIK"  "6230400D17RIK"  "6330403K07RIK" 
+## [481] "6330403N20RIK"  "6330408A02RIK"  "6330409D20RIK"  "6430531B16RIK" 
+## [485] "6430548M08RIK"  "6430550D23RIK"  "6430562O15RIK"  "6430571L13RIK" 
+## [489] "6430573F11RIK"  "6430573P05RIK"  "6430710C18RIK"  "6720427I07RIK" 
+## [493] "6720483E21RIK"  "6720489N17RIK"  "8030423F21RIK"  "8030442B05RIK" 
+## [497] "8030462N17RIK"  "8430408G22RIK"  "8430423G03RIK"  "9030612E09RIK" 
+## [501] "9030616G12RIK"  "9030617O03RIK"  "9030622O22RIK"  "9030624G23RIK" 
+## [505] "9030624J02RIK"  "9130008F23RIK"  "9130011E15RIK"  "9130019O22RIK" 
+## [509] "9130023H24RIK"  "9130204K15RIK"  "9130213A22RIK"  "9130230L23RIK" 
+## [513] "9130401M01RIK"  "9130409I23RIK"  "9130409J20RIK"  "9130604C24RIK" 
+## [517] "9230104M06RIK"  "9230110C19RIK"  "9230111E07RIK"  "9330102E08RIK" 
+## [521] "9330104G04RIK"  "9330111N05RIK"  "9330136K24RIK"  "9330151L19RIK" 
+## [525] "9330159F19RIK"  "9330161L09RIK"  "9330175E14RIK"  "9330182L06RIK" 
+## [529] "9330198N18RIK"  "9430002A10RIK"  "9430015G10RIK"  "9430016H08RIK" 
+## [533] "9430020K01RIK"  "9430037G07RIK"  "9430038I01RIK"  "9430065F17RIK" 
+## [537] "9430076C15RIK"  "9430098F02RIK"  "9530052C20RIK"  "9530053A07RIK" 
+## [541] "9530059O14RIK"  "9530068E07RIK"  "9530077C05RIK"  "9530082P21RIK" 
+## [545] "9930012K11RIK"  "9930021J03RIK"  "9930038B18RIK"  "9930111J21RIK2"
+## [549] "A130010J15RIK"  "A130051J06RIK"  "A230001M10RIK"  "A230028O05RIK" 
+## [553] "A230046K03RIK"  "A230050P20RIK"  "A230065H16RIK"  "A230087F16RIK" 
+## [557] "A330009N23RIK"  "A330069E16RIK"  "A330074K22RIK"  "A330094K24RIK" 
+## [561] "A330102I10RIK"  "A430005L14RIK"  "A430033K04RIK"  "A430046D13RIK" 
+## [565] "A430073D23RIK"  "A430105I19RIK"  "A430105J06RIK"  "A430106G13RIK" 
+## [569] "A430110L20RIK"  "A530013C23RIK"  "A530017D24RIK"  "A530021J07RIK" 
+## [573] "A530053M12RIK"  "A530083I20RIK"  "A530084C06RIK"  "A630001G21RIK" 
+## [577] "A630023A22RIK"  "A630076J17RIK"  "A630095E13RIK"  "A630095N17RIK" 
+## [581] "A730015C16RIK"  "A730020M07RIK"  "A730036I17RIK"  "A730046J19RIK" 
+## [585] "A730049H05RIK"  "A730061H03RIK"  "A730071L15RIK"  "A830005F24RIK" 
+## [589] "A830008E24RIK"  "A830009L08RIK"  "A830010M20RIK"  "A830018L16RIK" 
+## [593] "A830019P07RIK"  "A830039N20RIK"  "A830052D11RIK"  "A830080D01RIK" 
+## [597] "A930001A20RIK"  "A930002H24RIK"  "A930004D18RIK"  "A930006I01RIK" 
+## [601] "A930007I19RIK"  "A930011G23RIK"  "A930018P22RIK"  "A930024N18RIK" 
+## [605] "A930029G22RIK"  "A930033H14RIK"  "A930038B10RIK"  "B130006D01RIK" 
+## [609] "B130046B21RIK"  "B230118H07RIK"  "B230208H11RIK"  "B230217C12RIK" 
+## [613] "B230217O12RIK"  "B230219D22RIK"  "B230303O12RIK"  "B230307C23RIK" 
+## [617] "B230311B06RIK"  "B230312C02RIK"  "B230317F23RIK"  "B230344G16RIK" 
+## [621] "B230354K17RIK"  "B430203G13RIK"  "B430218F22RIK"  "B430305J03RIK" 
+## [625] "B630019K06RIK"  "B830012L14RIK"  "B930082K07RIK"  "B930094E09RIK" 
+## [629] "C030014I23RIK"  "C030034I22RIK"  "C030037D09RIK"  "C130026I21RIK" 
+## [633] "C130050O18RIK"  "C130060C02RIK"  "C130073F10RIK"  "C130074G19RIK" 
+## [637] "C230014O12RIK"  "C230035I16RIK"  "C330006A16RIK"  "C330007P06RIK" 
+## [641] "C330013E15RIK"  "C330018D20RIK"  "C330021F23RIK"  "C330027C09RIK" 
+## [645] "C430042M11RIK"  "C530008M17RIK"  "C530044C16RIK"  "C730034F03RIK" 
+## [649] "C920006O11RIK"  "D030025P21RIK"  "D030040B21RIK"  "D030056L22RIK" 
+## [653] "D130017N08RIK"  "D130020L05RIK"  "D130040H23RIK"  "D130051D11RIK" 
+## [657] "D230017M19RIK"  "D230025D16RIK"  "D330020A13RIK"  "D330045A20RIK" 
+## [661] "D330050G23RIK"  "D430019H16RIK"  "D430042O09RIK"  "D630003M21RIK" 
+## [665] "D630023F18RIK"  "D630024D03RIK"  "D630033O11RIK"  "D630036H23RIK" 
+## [669] "D630039A03RIK"  "D630045J12RIK"  "D730001G18RIK"  "D730003I15RIK" 
+## [673] "D730045B01RIK"  "D830030K20RIK"  "D830036C21RIK"  "D830039M14RIK" 
+## [677] "D830044D21RIK"  "D830044I16RIK"  "D930007P13RIK"  "D930015E06RIK" 
+## [681] "D930016D06RIK"  "D930020B18RIK"  "D930028M14RIK"  "D930030I03RIK" 
+## [685] "D930032P07RIK"  "D930048G16RIK"  "D930048N14RIK"  "E030030I06RIK" 
+## [689] "E030044B06RIK"  "E130012A19RIK"  "E130102H24RIK"  "E130114P18RIK" 
+## [693] "E130116L18RIK"  "E130208F15RIK"  "E130218I03RIK"  "E130308A19RIK" 
+## [697] "E130309D02RIK"  "E130311K13RIK"  "E230001N04RIK"  "E230025N22RIK" 
+## [701] "E330009J07RIK"  "E330013P04RIK"  "E330018M18RIK"  "E430018J23RIK" 
+## [705] "E430025E21RIK"  "F420014N23RIK"  "F630040K05RIK"  "F830016B08RIK" 
+## [709] "F930017D23RIK"  "G430095P16RIK"  "G630016G05RIK"  "G630018N14RIK" 
+## [713] "GRIK3"          "GRIK4"          "GRIK5"          "I830077J02RIK" 
+## [717] "I830134H01RIK"  "K230010J24RIK"  "M5C1000I18RIK"
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# Genes that may generate conflict when correcting the ID}
+\NormalTok{original\_genes[}\FunctionTok{grep}\NormalTok{(}\AttributeTok{x=}\NormalTok{ original\_genes, }\AttributeTok{pattern =} \StringTok{"RIK}\SpecialCharTok{\textbackslash{}\textbackslash{}}\StringTok{d"}\NormalTok{)]}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## [1] "1700047I17RIK2" "2610044O15RIK8" "9930111J21RIK2" "GRIK3"         
+## [5] "GRIK4"          "GRIK5"
+\end{verbatim}
+
+I manually correct the gene symbols by checking the mentioned case
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{corrected\_genes }\OtherTok{\textless{}{-}} \FunctionTok{character}\NormalTok{(}\FunctionTok{length}\NormalTok{(original\_genes)) }\CommentTok{\# empty vector to save symbols}
+\NormalTok{pattern\_grik }\OtherTok{=} \StringTok{"\^{}(GRIK)(}\SpecialCharTok{\textbackslash{}\textbackslash{}}\StringTok{d)"}   \CommentTok{\# start with GRIK followed by any digit}
+\NormalTok{pattern\_riken }\OtherTok{=} \StringTok{"RIK(}\SpecialCharTok{\textbackslash{}\textbackslash{}}\StringTok{d+)?$"}   \CommentTok{\# ends with RIK followed (or not) by any digit}
+
+\CommentTok{\# Iterate each gene}
+\ControlFlowTok{for}\NormalTok{ (i }\ControlFlowTok{in} \FunctionTok{seq\_along}\NormalTok{(original\_genes)) \{ }\CommentTok{\# seq\_along to use positions}
+\NormalTok{  gene }\OtherTok{\textless{}{-}}\NormalTok{ original\_genes[i]            }\CommentTok{\# assign i symbol to gene var}
+  
+  \CommentTok{\# Check conditions. First, Grik genes}
+  \ControlFlowTok{if}\NormalTok{ (}\FunctionTok{grepl}\NormalTok{(}\AttributeTok{pattern =}\NormalTok{ pattern\_grik, }\AttributeTok{x =}\NormalTok{ gene)) \{}
+\NormalTok{    corrected\_genes[i] }\OtherTok{\textless{}{-}} \FunctionTok{str\_to\_sentence}\NormalTok{(gene) }\CommentTok{\# store corrected symbol in position}
+    
+    \CommentTok{\# Then, correct Riken genes}
+\NormalTok{  \} }\ControlFlowTok{else}  \ControlFlowTok{if}\NormalTok{ (}\FunctionTok{grepl}\NormalTok{(}\AttributeTok{pattern =}\NormalTok{ pattern\_riken, }\AttributeTok{x =}\NormalTok{ gene)) \{}
+\NormalTok{    corrected\_genes[i] }\OtherTok{\textless{}{-}} \FunctionTok{gsub}\NormalTok{(}\AttributeTok{pattern =} \StringTok{"RIK"}\NormalTok{, }
+                               \AttributeTok{replacement=} \StringTok{"Rik"}\NormalTok{,   }\CommentTok{\# Correcting only Rik suffix, }
+                               \AttributeTok{x=}\NormalTok{ gene)              }\CommentTok{\# mantaining the rest of uppercases}
+    \CommentTok{\# The resting genes are in SYMBOL}
+\NormalTok{  \} }\ControlFlowTok{else}\NormalTok{ \{}
+\NormalTok{    corrected\_genes[i] }\OtherTok{\textless{}{-}} \FunctionTok{str\_to\_sentence}\NormalTok{(gene)}
+\NormalTok{  \}}
+\NormalTok{\}}
+
+\CommentTok{\# Checking results}
+\FunctionTok{head}\NormalTok{(corrected\_genes,}\DecValTok{10}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+##  [1] "0610007P14Rik" "0610009B22Rik" "0610009L18Rik" "0610009O20Rik"
+##  [5] "0610010F05Rik" "0610010K14Rik" "0610012G03Rik" "0610030E20Rik"
+##  [9] "0610033M10Rik" "0610037L13Rik"
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{tail}\NormalTok{(corrected\_genes,}\DecValTok{10}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+##  [1] "Zw10"   "Zwilch" "Zwint"  "Zxdb"   "Zxdc"   "Zyg11a" "Zyg11b" "Zyx"   
+##  [9] "Zzef1"  "Zzz3"
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\#corrected\_genes[grepl(pattern = "Rik", x = corrected\_genes, ignore.case = TRUE)]}
+
+\CommentTok{\# Loop to see if all genes are in the correct position (case insensitive)}
+\NormalTok{matches }\OtherTok{\textless{}{-}} \FunctionTok{logical}\NormalTok{(}\FunctionTok{length}\NormalTok{(original\_genes))}
+\ControlFlowTok{for}\NormalTok{ (i }\ControlFlowTok{in} \FunctionTok{seq\_along}\NormalTok{(original\_genes))\{}
+\NormalTok{  original }\OtherTok{\textless{}{-}}\NormalTok{ original\_genes[i]}
+\NormalTok{  corrected }\OtherTok{\textless{}{-}}\NormalTok{ corrected\_genes[i]}
+\NormalTok{  matches[i] }\OtherTok{\textless{}{-}} \FunctionTok{grepl}\NormalTok{(corrected, original, }\AttributeTok{ignore.case =} \ConstantTok{TRUE}\NormalTok{)}
+\NormalTok{\}}
+\FunctionTok{any}\NormalTok{(}\SpecialCharTok{!}\NormalTok{matches) }\CommentTok{\# I check for any FALSE match with !. FALSE = all values are match (TRUE)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## [1] FALSE
+\end{verbatim}
+
+\subsection{Saving results}\label{saving-results}
+
+I can't rename the features in the Seurat object, so I create a new
+corrected one.
+
+Extracting counts matrix and correcting gene symbols in raw and norm
+matrices
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{cts }\OtherTok{\textless{}{-}} \FunctionTok{LayerData}\NormalTok{(}\AttributeTok{object=}\NormalTok{ burdziak\_seu, }\AttributeTok{layer =} \StringTok{"counts"}\NormalTok{) }
+\FunctionTok{identical}\NormalTok{(}\FunctionTok{rownames}\NormalTok{(cts), }\FunctionTok{rownames}\NormalTok{(norm\_cts)) }\CommentTok{\# same gene symbols}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## [1] TRUE
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{rownames}\NormalTok{(cts) }\OtherTok{\textless{}{-}}\NormalTok{ corrected\_genes }
+\FunctionTok{rownames}\NormalTok{(norm\_cts) }\OtherTok{\textless{}{-}}\NormalTok{ corrected\_genes}
+\end{Highlighting}
+\end{Shaded}
+
+Following authors recommendations, transforming unlogged normalized data
+to log2 with 0.1 pseudocount
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{log2\_norm }\OtherTok{\textless{}{-}} \FunctionTok{log2}\NormalTok{(norm\_cts }\SpecialCharTok{+} \FloatTok{0.1}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## Warning in asMethod(object): sparse->dense coercion: allocating vector of size
+## 3.5 GiB
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{log2\_norm }\OtherTok{\textless{}{-}} \FunctionTok{as}\NormalTok{(log2\_norm, }\StringTok{"CsparseMatrix"}\NormalTok{) }\CommentTok{\# Seurat integration}
+\end{Highlighting}
+\end{Shaded}
+
+Creating the corrected Seurat object
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{burdziak\_seu\_corrected }\OtherTok{\textless{}{-}} \FunctionTok{CreateSeuratObject}\NormalTok{( }
+  \AttributeTok{counts =}\NormalTok{ cts,      }\CommentTok{\# counts}
+  \AttributeTok{data =} \ConstantTok{NULL}\NormalTok{,       }\CommentTok{\# empty norm counts}
+  \AttributeTok{meta.data =}\NormalTok{ burdziak\_seu}\SpecialCharTok{@}\NormalTok{meta.data) }\CommentTok{\# metadata}
+
+\NormalTok{burdziak\_seu\_corrected }\OtherTok{\textless{}{-}} \FunctionTok{SetAssayData}\NormalTok{(burdziak\_seu\_corrected, }
+             \AttributeTok{layer =} \StringTok{"data"}\NormalTok{,}
+             \AttributeTok{new.data =}\NormalTok{ log2\_norm,}
+             \AttributeTok{assay =} \StringTok{"RNA"}\NormalTok{)}
+\NormalTok{burdziak\_seu\_corrected}\SpecialCharTok{@}\NormalTok{reductions[[}\StringTok{"tsne"}\NormalTok{]] }\OtherTok{\textless{}{-}}\NormalTok{ burdziak\_seu}\SpecialCharTok{@}\NormalTok{reductions}\SpecialCharTok{$}\NormalTok{XEMBED\_ }\CommentTok{\# dim reductions}
+\NormalTok{burdziak\_seu\_corrected}\SpecialCharTok{@}\NormalTok{reductions[[}\StringTok{"pca"}\NormalTok{]] }\OtherTok{\textless{}{-}}\NormalTok{ burdziak\_seu}\SpecialCharTok{@}\NormalTok{reductions}\SpecialCharTok{$}\NormalTok{XPCA\_}
+\NormalTok{burdziak\_seu\_corrected}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## An object of class Seurat 
+## 16826 features across 28131 samples within 1 assay 
+## Active assay: RNA (16826 features, 0 variable features)
+##  2 layers present: counts, data
+##  2 dimensional reductions calculated: tsne, pca
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# Save RDS for future use}
+\NormalTok{rds }\OtherTok{\textless{}{-}} \FunctionTok{file.path}\NormalTok{(wd, }\StringTok{"/data/burdziak\_seu\_corrected.rds"}\NormalTok{)}
+\FunctionTok{saveRDS}\NormalTok{(burdziak\_seu\_corrected, }\AttributeTok{file =}\NormalTok{ rds)}
+\end{Highlighting}
+\end{Shaded}
+
+
+\end{document}

@@ -140,6 +140,10 @@ for (i in seq_along(markers_list)) {
     ggtitle(paste(list_name, "GO enrichment"))
   
   filename = paste0(list_name, "_enrich.png")
-  #ggsave(filename = filename, plot = plotALL, width = 12, height = 10, path = dea_dir)
+  ggsave(filename = filename, plot = plotALL, width = 12, height = 10, path = dea_dir)
   plot_list[[i]] <- plotALL
 }
+#ADM cells show alterations in nuclear envelope and stressors response related categories:
+adm_plot <- plot_list[[2]]
+adm_plot
+

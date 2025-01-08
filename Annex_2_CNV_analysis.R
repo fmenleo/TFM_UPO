@@ -1,5 +1,5 @@
 ################################################################################
-##### ANNEX 3: CNV analysis via inferCNV (Burdziak et all. dataset)        #####
+##### ANNEX 2: CNV analysis via inferCNV (Burdziak et all. dataset)        #####
 ################################################################################
 
 wd <- r"(C:\Users\javim\OneDrive - UNIVERSIDAD DE SEVILLA\TFM_UPO)"

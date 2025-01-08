@@ -1,6 +1,7 @@
 ---
 title: 'ANNEX 1: Initial data processing (Burdziak et all. dataset)'
 output:
+  pdf_document: default
   html_document:
     df_print: paged
 ---
