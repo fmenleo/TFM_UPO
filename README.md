@@ -1,6 +1,6 @@
 # ORIGIN OF CHROMOSOMAL INSTABILITY IN PANCREATIC CANCER
-## Francisco Javier Mendoza León
-## Análisis Bioinformático Avanzado (UPO)
+### Francisco Javier Mendoza León
+### Análisis Bioinformático Avanzado (UPO)
 
 This repository contains the codes, notebooks and additional results obtained from the Master's Thesis entitled **"ORIGIN OF CHROMOSOMIC INSTABILITY IN PANCREATIC CANCER”**, developed within the framework of the Master's program in Análisis Bioinformático Avanzado of the Universidad Pablo de Olavide.
 
